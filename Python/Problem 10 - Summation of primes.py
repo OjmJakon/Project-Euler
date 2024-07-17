@@ -14,3 +14,18 @@
 
 #Takes too long. Upon further research it is better to use the Sieve algorithm.
 
+arr = []
+n = 2000000
+p = 2
+prime = [True for i in range(n)]
+
+while p * p <= n:
+    if prime[p] == True:
+        for i in range(p*p, n, p):
+            prime[i] = False
+    p += 1
+
+for p in range(2, n):
+    if prime[p] == True:
+        arr.append(p)
+print(sum(arr))
